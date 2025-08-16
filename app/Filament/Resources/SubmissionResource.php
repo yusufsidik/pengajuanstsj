@@ -25,6 +25,10 @@ class SubmissionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
+    protected static ?string $navigationGroup = "Pengajuan";
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -56,7 +60,9 @@ class SubmissionResource extends Resource
                 FileUpload::make('file_acc')
                     ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/jpg','image/png'])
                     ->maxSize(2048)
+                    ->openable()
                     ->downloadable()
+                    ->label('Upload file approval jika sudah ACC. Format: pdf/jpeg/jpg/png Max: 2 MB')
                     ->columnSpanFull()
             ]);
     }
@@ -66,6 +72,8 @@ class SubmissionResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('submission_number')
+                    ->color('primary')
+                    ->weight(FontWeight::Bold)
                     ->copyable()
                     ->copyMessage('Submissioin number copied')
                     ->copyMessageDuration(1500)

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Submission;
+use App\Models\{Submission,Vehicle};
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -11,9 +11,11 @@ class StatsSubmissionOverview extends BaseWidget
 {
     protected function getStats(): array
     {
+        
         return [
-            Stat::make('Waiting', Submission::query()->where('status_id',2)->count()),
-            Stat::make('Approved', Submission::query()->where('status_id',1)->count())
+            Stat::make('WAITING', Submission::query()->where('status_id',2)->count())
+                ->color('primary')
+                ->description('Pengajuan belum disetujui'),
         ];
     }
 }
