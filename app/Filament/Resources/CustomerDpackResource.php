@@ -13,8 +13,8 @@ use Filament\Tables\Table;
 // use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-use Filament\Forms\Components\{TextInput, Select, DatePicker, Textarea, FileUpload};
-use Filament\Support\Enums\FontWeight;
+use Filament\Forms\Components\{TextInput, Select, FileUpload};
+// use Filament\Support\Enums\FontWeight;
 
 use Filament\Tables\Columns\{TextColumn};
 
